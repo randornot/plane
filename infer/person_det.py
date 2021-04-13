@@ -33,7 +33,7 @@ def main():
         print(vid_name)
         os.mkdir(osp.join(args.output, vid_name))
 
-        video = Stream(osp.join(args.input, vid_name), osp.join(args.time, vid_name.split(".")[0] + ".txt"))
+        video = Stream(osp.join(args.input, vid_name), osp.join(args.time, os.listdir(args.time)[0]))
         # TODO: 研究tqdm需要什么方法显示总数
         for fidx, img in video:
             # 检测出一个batch的起落架
