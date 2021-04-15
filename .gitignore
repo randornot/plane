@@ -2,8 +2,12 @@
 *.png
 *.mp4
 *.zip
+*.tar
 model/
 output/
+train-video
+time-out
+temp
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
