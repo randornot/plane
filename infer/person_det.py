@@ -14,11 +14,11 @@ parser.add_argument(
     "-i",
     "--input",
     type=str,
-    default="H:/W_S/Graduation_Project/plane/train-video",
+    default="/home/aistudio/plane/vid-split/train",
     help="视频存放路径",
 )
-parser.add_argument("-o", "--output", type=str, default="H:/W_S/Graduation_Project/plane/temp", help="结果帧存放路径")
-parser.add_argument("-t", "--time", type=str, default="H:/W_S/Graduation_Project/plane/时间", help="上撤轮挡时间标注")
+parser.add_argument("-o", "--output", type=str, default="/home/aistudio/plane/temp", help="结果帧存放路径")
+parser.add_argument("-t", "--time", type=str, default="/home/aistudio/plane/time/all/", help="上撤轮挡时间标注")
 parser.add_argument("--itv", type=int, default=25, help="抽帧间隔")
 parser.add_argument("--bs", type=int, default=2, help="推理bs")
 args = parser.parse_args()
@@ -27,7 +27,7 @@ args = parser.parse_args()
 def main():
     # 1. 定义模型对象
     flg_det = PdxDet(model_path="../model/best/flg_det/", bs=4)
-    person_det = PdxDet(model_path="../model/best/person_det_yolov3", bs=8, autoflush=False)
+    person_det = PdxDet(model_path="../model/best/person_det", bs=8, autoflush=False)
 
     for vid_name in os.listdir(args.input):
         print(vid_name)
